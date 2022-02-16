@@ -1,0 +1,7 @@
+auth
+https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login
+
+create database
+>>> `python3`
+>>> `from project import db, create_app, models`
+>>> `db.create_all(app=create_app())
