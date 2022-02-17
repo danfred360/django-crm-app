@@ -1,12 +1,14 @@
 #!/bin/bash
 
+# https://phoenixnap.com/kb/convert-dos-to-unix
+
 export FLASK_APP=project
 export PORT=5000
 export FLASK_DEBUG=1
 export SQLALCHEMY_TRACK_MODIFICATIONS=False
 
 #alias p-run="source venv/bin/activate && python3 app.py"
-alias p-run="source venv/bin/activate && flask run project"
+alias p-run="source venv/bin/activate && flask run"
 
 alias p-build-image="docker image build -t maria ."
 alias p-run-image='docker run -p '"$PORT"':'"$PORT"' -d --name maria_app maria'
