@@ -8,7 +8,7 @@
         <div class="tile is-child">
           <a href="{{ url_for('main.create_meal') }}"><button class="button is-success">Create</button></a>
         </div>
-        <article class="tile is-child notification is-danger">
+        <article class="tile is-child notification has-background-black-ter">
               <p class="title">Meals</p>
               <p class="subtitle">Select a meal</p>
           <div class="content">
@@ -16,7 +16,7 @@
             <div class="tile">
                 <div class="tile is-parent is-vertical">
                   {% for meal in meals %}
-                    <article class="tile is-child notification has-background-grey-darker">
+                    <article class="tile is-child notification is-danger">
                         <a href="meals/{{ meal.id }}"><p class="title">{{ meal.name }}</p></a>
                         <p class="subtitle">{{ meal.description }}</p>
                     </article>

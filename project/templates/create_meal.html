@@ -5,7 +5,7 @@
     <div class="tile is-vertical">
       
       <div class="tile is-parent is-vertical">
-        <article class="tile is-child notification is-danger has-text-white">
+        <article class="tile is-child notification has-background-black-ter has-text-white">
               <p class="title">Create meal</p>
               <p class="subtitle">sounds delicious</p>
           <div class="content">
@@ -54,7 +54,7 @@
             </div>
               
             <div class="field">
-                <label class="label has-text-white">Serving Method</label>
+                <label class="label has-text-white  ">Serving Method</label>
                 <div class="control">
                     <div class="select">
                     <select>
@@ -64,13 +64,95 @@
                     </div>
                 </div>
             </div>
+
+            <div class="columns">
+                <div class="column is-half">
+                    <div class="tile">
+                        <div class="tile is-parent is-vertical">
+                            <p class="title">All Ingredients</p>
+                            <article class="tile is-child notification has-background-grey-darker">
+                                <p class="title">Create an ingredient</p>
+                                <form method="POST" action="/create_ingredient">
+                                    <div class="field">
+                                        <label class="label has-text-white">Name</label>
+                                        <div class="control">
+                                          <input class="input" type="text" placeholder="Enter the name of the ingredient." name="ingredient_name">
+                                        </div>
+                                    </div>
+        
+                                    <div class="field">
+                                        <label class="label has-text-white">Cost</label>
+                                        <div class="control">
+                                          <input class="input" type="text" placeholder="Enter the cost of the ingredient." name="ingredient_name">
+                                        </div>
+                                    </div>
+        
+                                    <div class="control">
+                                        <button class="button is-success">Create</button>
+                                    </div>
+                                </form>
+                                <p class="subtitle">Use the button</p>
+                            </article>
+                            {% for ingredient in ingredients %}
+                            <article class="tile is-child notification is-danger">
+                                <p class="title">{{ ingredient.name }}</p>
+                                <p class="subtitle">{{ ingredient.cost }}</p>
+                                <form method="POST" action="use_ingredient_in_meal">
+                                    <div class="control">
+                                        <button class="button is-success">Use</button>
+                                    </div>
+                                </form>
+                            </article>
+                            {% endfor %}
+                            <article class="tile is-child notification has-background-grey-darker">
+                                <p class="title">Add an ingredient to get started</p>
+                                <p class="subtitle">Use the button</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-half">
+                    <div class="tile">
+                        <div class="tile is-parent is-vertical">
+                            <p class="title">Ingredients Used</p>
+                            <article class="tile is-child notification has-background-grey-darker">
+                                <p class="title">Add an ingredient to get started</p>
+                                <p class="subtitle">Use the button</p>
+                                <form method="POST" action="use_ingredient_in_meal">
+                                    <div class="control">
+                                        <button class="button is-danger">Remove</button>
+                                    </div>
+                                </form>
+                            </article>
+                            <article class="tile is-child notification has-background-grey-darker">
+                                <p class="title">Add an ingredient to get started</p>
+                                <p class="subtitle">Use the button</p>
+                                <form method="POST" action="use_ingredient_in_meal">
+                                    <div class="control">
+                                        <button class="button is-danger">Remove</button>
+                                    </div>
+                                </form>
+                            </article>
+                            <article class="tile is-child notification has-background-grey-darker">
+                                <p class="title">Add an ingredient to get started</p>
+                                <p class="subtitle">Use the button</p>
+                                <form method="POST" action="use_ingredient_in_meal">
+                                    <div class="control">
+                                        <button class="button is-danger">Remove</button>
+                                    </div>
+                                </form>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
               
             <div class="field is-grouped">
                 <div class="control">
-                    <button class="button is-link">Submit</button>
+                    <button class="button is-success">Submit</button>
                 </div>
                 <div class="control">
-                    <button class="button is-link is-light">Cancel</button>
+                    <button class="button is-link is-danger">Cancel</button>
                 </div>
             </div>
             </form>

@@ -12,4 +12,5 @@ alias p-run="source venv/bin/activate && flask run"
 
 alias p-build-image="docker image build -t maria ."
 alias p-run-image='docker run -p '"$PORT"':'"$PORT"' -d --name maria_app maria'
-alias p-stop-image="docker kill peek_app && docker rm maria_app"
+alias p-stop-image="docker kill maria_app"
+alias p-remove-image="docker rm maria_app"

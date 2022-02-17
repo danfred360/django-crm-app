@@ -13,7 +13,9 @@ RUN pip3 install -r requirements.txt
 # copy every content from the local file to the image
 COPY . /app
 
+RUN chmod u+x local-env.sh
+
 # configure the container to run in an executed manner
 ENTRYPOINT [ "python" ]
 
-CMD ["project" ]
+CMD ["project"]
