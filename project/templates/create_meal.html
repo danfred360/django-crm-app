@@ -5,7 +5,7 @@
     <div class="tile is-vertical">
       
       <div class="tile is-parent is-vertical">
-        <article class="tile is-child notification is-danger">
+        <article class="tile is-child notification is-danger has-text-white">
               <p class="title">Create meal</p>
               <p class="subtitle">sounds delicious</p>
           <div class="content">
@@ -19,42 +19,42 @@
             {% endwith %}
             <form method="POST" action="/create_meal">
             <div class="field">
-                <label class="label">Name</label>
+                <label class="label has-text-white">Name</label>
                 <div class="control">
                   <input class="input" type="text" placeholder="Enter the name of the meal." name="meal_name">
                 </div>
             </div>
             
             <div class="field">
-                <label class="label">Description</label>
+                <label class="label has-text-white">Description</label>
                 <div class="control">
                     <textarea class="textarea" placeholder="Enter a description for the meal." name="meal_description"></textarea>
                 </div>
             </div>
 
             <div class="field">
-                <label class="label">Preparation Time</label>
+                <label class="label has-text-white">Preparation Time</label>
                 <div class="control">
                   <input class="input" type="text" placeholder="Enter the estimated time required to prepare the meal in minutes." name="meal_prep_time">
                 </div>
             </div>
             
             <div class="field">
-                <label class="label">Preparation Instructions</label>
+                <label class="label has-text-white">Preparation Instructions</label>
                 <div class="control">
                     <textarea class="textarea" placeholder="Enter any preparation instructions." name="meal_prep_instructions"></textarea>
                 </div>
             </div>
 
             <div class="field">
-                <label class="label">Labor Cost</label>
+                <label class="label has-text-white">Labor Cost</label>
                 <div class="control">
                   <input class="input" type="text" placeholder="Enter the cost associated with time / facilities used to make meal excluding ingredients." name="meal_labor_cost">
                 </div>
             </div>
               
             <div class="field">
-                <label class="label">Serving Method</label>
+                <label class="label has-text-white">Serving Method</label>
                 <div class="control">
                     <div class="select">
                     <select>

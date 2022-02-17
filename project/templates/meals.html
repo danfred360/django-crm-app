@@ -15,20 +15,18 @@
             <!-- Content -->
             <div class="tile">
                 <div class="tile is-parent is-vertical">
-                    {% for meal in meals %}
-                    <article class="tile is-child notification is-primary">
-                        <p class="title">{( meal.name }}</p>
+                  {% for meal in meals %}
+                    <article class="tile is-child notification has-background-grey-darker">
+                        <a href="meals/{{ meal.id }}"><p class="title">{{ meal.name }}</p></a>
                         <p class="subtitle">{{ meal.description }}</p>
                     </article>
-                    {% endfor %}
-                  <article class="tile is-child notification is-primary">
-                    <p class="title">Vertical...</p>
-                    <p class="subtitle">Top tile</p>
+                  {% endfor %}
+                  {% if meals.length == 0 %}
+                  <article class="tile is-child notification has-background-grey-darker">
+                    <p class="title">Create a meal to get started</p>
+                    <p class="subtitle">Use the button</p>
                   </article>
-                  <article class="tile is-child notification is-warning">
-                    <p class="title">...tiles</p>
-                    <p class="subtitle">Bottom tile</p>
-                  </article>
+                  {% endif %}
                 </div>
             </div>
           </div>

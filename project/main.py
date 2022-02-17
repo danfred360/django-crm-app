@@ -27,7 +27,7 @@ def create_meal():
     ingredients = Ingredient.query.filter_by(creator_id=current_user.id)
     return render_template('create_meal.html', ingredients=ingredients)
 
-@main.route('/create_meal', method=['POST'])
+@main.route('/create_meal', methods=['POST'])
 @login_required
 def create_meal_post():
     name = request.form.get('meal_name')
@@ -63,3 +63,9 @@ def create_meal_post():
     db.session.commit()
 
     return redirect(url_for('main.meals'))
+
+@main.route('/meals/<id>')
+@login_required
+def detail_meal(id):
+    meal = Meal.query.filter_by(id=id).first()
+    return render_template('detail_meal.html', meal=meal)
