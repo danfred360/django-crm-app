@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="tile is-ancestor">
+    <div class="tile is-vertical is-8">
+      
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-danger">
+          <p class="title">Meals</p>
+          <p class="subtitle">Select a meal</p>
+          <button class="button is-success">Create</button>
+          <div class="content">
+            <!-- Content -->
+            <div class="tile">
+                <div class="tile is-parent is-vertical">
+                    {% if new_meal %}
+                    <article class="tile is-child notification is-primary">
+                        <p class="title">new meal</p>
+                        <p class="subtitle">foo</p>
+                    </article>
+                    {% endif %}
+                    {% for meal in meals %}
+                    <article class="tile is-child notification is-primary">
+                        <p class="title">{( meal.name }}</p>
+                        <p class="subtitle">{{ meal.description }}</p>
+                    </article>
+                    {% endfor %}
+                  <article class="tile is-child notification is-primary">
+                    <p class="title">Vertical...</p>
+                    <p class="subtitle">Top tile</p>
+                  </article>
+                  <article class="tile is-child notification is-warning">
+                    <p class="title">...tiles</p>
+                    <p class="subtitle">Bottom tile</p>
+                  </article>
+                </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-success">
+        <div class="content">
+          <p class="title">Ingredients</p>
+          <p class="subtitle">Select an ingredient</p>
+          <button class="button is-danger">Create</button>
+          <div class="content">
+            <!-- Content -->
+            <div class="tile">
+                <div class="tile is-parent is-vertical">
+                    {% for ingredient in ingredients %}
+                    <article class="tile is-child notification is-primary">
+                        <p class="title">{( ingredient.name }}</p>
+                        <p class="subtitle">{{ ingredient.description }}</p>
+                    </article>
+                    {% endfor %}
+                  <article class="tile is-child notification is-primary">
+                    <p class="title">Vertical...</p>
+                    <p class="subtitle">Top tile</p>
+                  </article>
+                  <article class="tile is-child notification is-warning">
+                    <p class="title">...tiles</p>
+                    <p class="subtitle">Bottom tile</p>
+                  </article>
+                </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+{% endblock %}
