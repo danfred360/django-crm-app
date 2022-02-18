@@ -64,6 +64,38 @@ def create_meal_post():
 
     return redirect(url_for('main.meals'))
 
+@main.route('/create_ingredient', methods=['POST'])
+@login_required
+def create_ingredient():
+    creator_id = current_user.id
+    name = request.form.get('ingredient_name')
+    cost = request.form.get('ingredient_cost')
+
+    ingredient = Ingredient.query.filter_by(name=name, creator_id=current_user.id).first()
+
+    if ingredient:
+        flash('An ingredient with this name already exists.')
+        return redirect(url_for('main.create_meal'))
+
+    new_ingredient = Ingredient(creator_id=creator_id, name=name, cost=cost)
+
+    db.session.add(new_ingredient)
+    db.session.commit()
+
+    ingredients = Ingredient.query.filter_by(creator_id=current_user.id)
+
+    return render_template('create_meal.html', ingredients=ingredients)
+
+@main.route('/use_ingredient_in_meal', methods=['POST'])
+@login_required
+def use_ingredient_in_meal():
+    pass
+
+@main.route('/remove_ingredient_from_meal', methods=['POST'])
+@login_required
+def remove_ingredient_from_meal():
+    pass
+
 @main.route('/meals/<id>')
 @login_required
 def detail_meal(id):
